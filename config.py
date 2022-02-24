@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # parameters of server
-K8S_PROXY = '***cluster_address***'
+K8S_PROXY = 'https://cern-mc43h.ydf.yandex.net:8443'
 
-fName = "***PATH***"
-HOST_OUTPUT_DIRECTORY = 'data/{}'.format(fName)
-HOST_LOCALOUTPUT_DIRECTORY = '/mnt/shipfs/{}'.format(fName)
+HOST_OUTPUT_DIRECTORY = 'EK_output/cube_optimisation_11/'
+HOST_LOCALOUTPUT_DIRECTORY = '/mnt/shipfs/EK_output/cube_optimisation_11/'
 DOCKER_OUTPUT_DIRECTORY = '/output'
 
 # HOST_SAMPLE_DIRECTORY - local folder in the cluster
@@ -31,8 +30,22 @@ JOB_SPEC = {
                 "containers": [
                     {
                         "name": "ekship",
-                        "image": "mrphys/shield_opt:big_opt_11",
-
+                        "image": "mrphys/shield_opt:big_opt_14",
+                        # Set env in the code
+                        # "env": [
+                        #     {"name": "fileName",
+                        #      "value": "pythia8_Geant4_10.0_withCharmandBeauty0_mu.root"},
+                        #     {"name": "mfirstEvent",
+                        #      "value": "0"},
+                        #     {"name": "nEvents",
+                        #      "value": "10"},
+                        #     {"name": "muShieldDesign",
+                        #      "value": "9"},
+                        #     {"name": "jName",
+                        #      "value": "testJob"},
+                        #     {"name": "jNumber",
+                        #      "value": "1"},
+                        # ],
                         "resources": {
                             "requests": {
                                 "memory": "6Gi",
@@ -44,18 +57,34 @@ JOB_SPEC = {
                             }
                         },
                         "volumeMounts": [
-
+                            {
+                                "name": "yandex",
+                                "mountPath": "/output"
+                            }
+                            # {
+                            #     "mountPath": DOCKER_OUTPUT_DIRECTORY,
+                            #     "name": "output"
+                            # },
+                            # {
+                            #     "mountPath": DOCKER_SAMPLE_DIRECTORY,
+                            #     "name": "muonsample",
+                            #     # "readOnly": true
+                            # }
                         ]
                     }
                 ],
                 "hostNetwork": True,
                 "restartPolicy": "Never",
                 "volumes": [
-
-                ]
+                    {
+                        "name": "yandex",
+                        "persistentVolumeClaim": {
+                             "claimName": "ekurbatov-s3"
+                        }
+                    }
+]
             }
         },
         "backoffLimit": 1
     }
 }
-
