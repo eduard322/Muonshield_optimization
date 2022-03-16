@@ -4,8 +4,8 @@
 # parameters of server
 K8S_PROXY = 'https://cern-mc43h.ydf.yandex.net:8443'
 
-HOST_OUTPUT_DIRECTORY = 'EK_output/cube_optimisation_11/'
-HOST_LOCALOUTPUT_DIRECTORY = '/mnt/shipfs/EK_output/cube_optimisation_11/'
+HOST_OUTPUT_DIRECTORY = 'real_cube_optimisation_100_log_fixed_weight/'
+HOST_LOCALOUTPUT_DIRECTORY = '/mnt/eursov/real_cube_optimisation_100_log_fixed_weight/'
 DOCKER_OUTPUT_DIRECTORY = '/output'
 
 # HOST_SAMPLE_DIRECTORY - local folder in the cluster
@@ -30,6 +30,7 @@ JOB_SPEC = {
                 "containers": [
                     {
                         "name": "ekship",
+                        #"image": "edursov/fairship",
                         "image": "mrphys/shield_opt:big_opt_14",
                         # Set env in the code
                         # "env": [
@@ -79,7 +80,7 @@ JOB_SPEC = {
                     {
                         "name": "yandex",
                         "persistentVolumeClaim": {
-                             "claimName": "ekurbatov-s3"
+                             "claimName": "eursov-s3"
                         }
                     }
 ]

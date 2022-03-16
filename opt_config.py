@@ -70,7 +70,7 @@ DEFAULT_POINT = [
 ]
 FIXED_RANGES = [(0, 2), (8, 20)]
 FIXED_PARAMS = StripFreeParams(DEFAULT_POINT)
-
+print(FIXED_PARAMS)
 
 RUN = 'discrete4'
 POINTS_IN_BATCH = 10

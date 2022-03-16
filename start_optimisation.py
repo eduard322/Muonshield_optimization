@@ -7,7 +7,13 @@ import pickle
 import os
 import shutil
 import numpy as np
-
+from comet_ml import Experiment
+from Magn_vis import Shielddrawer
+from matplotlib import colors
+import matplotlib.patches as patches
+import matplotlib.gridspec as gridspec
+import matplotlib
+import matplotlib.pyplot as plt
 from sklearn.ensemble import GradientBoostingRegressor
 from skopt import Optimizer
 from skopt.learning import GaussianProcessRegressor, RandomForestRegressor, GradientBoostingQuantileRegressor
@@ -18,8 +24,32 @@ from opt_config import (RUN, POINTS_IN_BATCH, RANDOM_STARTS, MIN, METADATA_TEMPL
 from run_kub import run_batch
 
 SLEEP_TIME = 60
-DEFAULT_POINT = [70,170,214.8,180.4,309.1,283.9,225.4,245,40,40,150,150,2,2,80,80,150,150,2,2,67.1,49.7,27.5,37.1,35.6,7.1,54.9,18,78.1,175.3,23.2,9.4,32.9,24.2,28,40.4,40.8,2.6,3.9,26.4,77,38.4,0.7,8.8,13.3,41.1,219.5,67.6,6.7,0.5,15.4,68.1,92.3,233.6,5.8,36.9]
+DEFAULT_POINT = [70,170,200,200,200,200,200,200,40,40,150,150,2,2,80,80,150,150,2,2,67.1,49.7,27.5,37.1,35.6,7.1,54.9,18,78.1,175.3,23.2,9.4,32.9,24.2,28,40.4,40.8,2.6,3.9,26.4,77,38.4,0.7,8.8,13.3,41.1,219.5,67.6,6.7,0.5,15.4,68.1,92.3,233.6,5.8,36.9]
 
+
+ 
+
+
+def fig(Y):
+    fig, ax = plt.subplots(figsize=(14, 12), dpi=100)
+    plt.grid()
+    ax.plot(Y, color = 'blue')
+    ax.set_xlabel("Points", fontsize=14)
+    ax.set_ylabel("Loss function", fontsize=14)
+    ax.set_yscale("log")
+    plt.legend()
+    return fig
+
+def magn(X):
+    Data = X
+    fig = plt.figure(figsize=(15,10))
+#plt.grid()
+    drawer = Shielddrawer(np.array(Data))
+    gs1 = gridspec.GridSpec(1, 1)
+    gs1.update(wspace=0.025, hspace=0.25)
+    drawer.plot_frame(0, fig, gs1)
+    return fig
+    
 
 class NpEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -66,9 +96,9 @@ def ProcessPoint(jobs):
     try:
         weight, _, muons_w = get_result(jobs)
         #print('obtained weights: ', weight, length, muons_w)
-        y = FCN(weight, muons_w, 0)
-        #print('Y: ', y)
         X = ExtractParams(jobs['metadata'])
+        y = FCN(weight, muons_w, 0, X[2:8])
+        print('Magnets length: ', sum(X[2:8]))
         # print('X: ', X)
         # print(X, y)
         return X, y
@@ -126,7 +156,7 @@ def WaitCompleteness(mpoints):
             #    job = run_batch(job['metadata'])
             work_time = 0
 
-def CalculatePoints(points, tag, cache, space):
+def CalculatePoints(points, tag, cache, space, Y_data, experiment):
     tags = {json.dumps(points[i], cls=NpEncoder):str(tag)+'-'+str(i) for i in range(len(points))}
     shield_jobs = [
         SubmitKubJobs(point, tags[json.dumps(point, cls=NpEncoder)])
@@ -137,6 +167,12 @@ def CalculatePoints(points, tag, cache, space):
     if shield_jobs:
         shield_jobs = WaitCompleteness(shield_jobs)
         X_new, y_new = ProcessJobs(shield_jobs, tag, space)
+        Y_data += y_new
+        print(X_new[0], "!!!!!!!!!!!!!!   " + str(sum(X_new[0][:6])) + "   !!!!!!!!!!!!!!!!!!!!!!!")
+        experiment.log_figure("Optimization dynamic", fig(Y_data), overwrite=True)
+        experiment.log_figure("Magnets", magn(AddFixedParams(X_new[0])), overwrite=True)
+        experiment.log_metric("loss", y_new, step = tag)
+        #experiment.log_metric("length", sum(X_new[:6]), step = tag)
     return X_new, y_new
 
 def load_points_from_dir(db_name='db.pkl'):
@@ -181,7 +217,12 @@ def main():
 
     space = CreateSpace()
     clf = CreateOptimizer(args.opt, space, random_state=int(args.state) if args.state else None)
-
+    experiment = Experiment(
+    api_key="dDolDoCEM7Pf3sXP1G7pporUI",
+    project_name="bo-project",
+    workspace="eursov",)
+    experiment.log_figure("Magnets", magn(DEFAULT_POINT), overwrite=True)
+    print("!!!!!!!!!!!!!!   " + str(sum(DEFAULT_POINT[2:8])) + "   !!!!!!!!!!!!!!!!!!!!!!!")
     if args.olddb:
         cache = load_points_from_dir(args.db)
     else:
@@ -200,14 +241,13 @@ def main():
                     clf.tell(StripFixedParams(loc_x), loc_y)
         except ValueError:
             print('None of the previous points are contained in the space.')
-
+    Y_data = []
 #calculate the first point if DB is empty:
     if len(cache.keys())==0:
-        X_1, y_1 = CalculatePoints([DEFAULT_POINT], tag, cache, space)
+        X_1, y_1 = CalculatePoints([DEFAULT_POINT], tag, cache, space, Y_data, experiment)
         print("default start point scorring: \n", X_1, y_1)
         cache[json.dumps(X_1[0], cls=NpEncoder)] = y_1[0]
         clf.tell(StripFixedParams(X_1[0]), y_1[0])
-
         with open(args.db, 'wb') as db:
                  pickle.dump(cache, db, pickle.HIGHEST_PROTOCOL)
 
@@ -216,8 +256,10 @@ def main():
         points = [AddFixedParams(p) for p in space.rvs(n_samples=POINTS_IN_BATCH)]
         # points = [transform_forward(p) for p in points]
         # print(points)
-        X_new, y_new = CalculatePoints(points, tag, cache, space)
+        X_new, y_new = CalculatePoints(points, tag, cache, space, Y_data, experiment)
         print('Received new points ', X_new, y_new)
+        #Y_data += y_new
+        #experiment.log_figure("Optimization dynamic", fig(Y_data), overwrite=True)
         if X_new and y_new:
             for x, loss in zip(X_new, y_new):
                 cache[json.dumps(x,cls=NpEncoder)] = loss
@@ -227,11 +269,12 @@ def main():
                  pickle.dump(cache, db, pickle.HIGHEST_PROTOCOL) 
             clf.tell([p for p in StripFixedParams_multipoint(X_new)], y_new)
 
+    
     while True:
         tag = tag+1
         points = [AddFixedParams(p) for p in clf.ask(n_points=POINTS_IN_BATCH, strategy='cl_mean')]
         X_new, y_new = CalculatePoints(
-            points, tag, cache, space)
+            points, tag, cache, space, Y_data, experiment)
 
         print('Received new points ', X_new, y_new)
         if X_new and y_new:
@@ -242,15 +285,17 @@ def main():
                             pickle.dump(cache, db, pickle.HIGHEST_PROTOCOL)
 
         # X_new = [transform_backward(point) for point in X_new]
-
+        #Y_data += y_new
+        #experiment.log_figure("Optimization dynamic", fig(Y_data), overwrite=True)
         result = clf.tell(StripFixedParams_multipoint(X_new), y_new)
 
-        with open('optimiser.pkl', 'wb') as f:
+        with open('/mnt/eursov/optimiser.pkl', 'wb') as f:
             pickle.dump(clf, f)
 
-        with open('result.pkl', 'wb') as f:
+        with open('/mnt/eursov/result.pkl', 'wb') as f:
             pickle.dump(result, f)
 
 
 if __name__ == '__main__':
+    matplotlib.use('Agg') 
     main()

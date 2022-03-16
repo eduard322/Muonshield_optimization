@@ -5,9 +5,10 @@ from skopt.space.space import Integer, Space, Real
 from opt_config import FIXED_PARAMS, FIXED_RANGES
 
 
-def FCN(W, Sxi2, _):
-    W_star = 1915820.
-    return (1 + np.exp(10. * (W - W_star) / W_star)) * (1. + Sxi2) if W <= 3e6 else 1e8
+def FCN(W, Sxi2, _, Params):
+    W_star = 1915820.*25/30.
+
+    return (1 + np.exp(10. * (W - W_star) / W_star)) * (1. + 2*Sxi2) if W <= 3e6 or sum(Params) > 1250. else 1e8
 
 def StripFixedParams(point):
     #removes absober data from the point
@@ -47,7 +48,7 @@ def CreateSpace(nMagnets=8):
             ])
 
     return Space(StripFixedParams(dimensions))
-
+    #return dimensions
 def ParseParams(params_string):
     return [float(x) for x in params_string.strip('[]').split(',')]
 
@@ -64,3 +65,7 @@ def create_id(params):
     h = hashlib.md5()
     h.update(params_json)
     return h.hexdigest()
+
+
+if __name__ == '__main__':
+    print(CreateSpace)

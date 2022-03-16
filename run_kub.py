@@ -51,8 +51,11 @@ def run_kube_job(job_spec: dict,
                  job_folder: str,
                  timeout: int) -> str:
     job_tag = "-".join(job_folder.split("/")[-2:])
-    job_uuid: str = f"ek-{str(uuid.uuid4())[:5]}-{job_tag}"
+    job_uuid: str = f"eu-{str(uuid.uuid4())[:5]}-{job_tag}"
     job_spec["metadata"]["name"] = job_spec["metadata"]["name"].format(job_uuid)
+
+    # DEPRECATED FOR USAGE WITH AZCOPY
+    # job_spec["spec"]["template"]["spec"]["volumes"][0]["hostPath"]["path"] = job_folder
 
     job_spec["spec"]["template"]["spec"]["containers"][0]["env"] = to_kube_env(envs)
     logging.basicConfig(level=logging.INFO)
@@ -72,7 +75,10 @@ def run_kube_job(job_spec: dict,
             status = status_checker(job=job)
             if status == "succeeded":
                 logging.info(f"JOB: {job_uuid} finished. Output in {job_folder}")
-                job.delete("Foreground")
+                try:
+                    job.delete("Foreground")
+                except TypeError:
+                    print("delete error")
                 return status
         except requests.exceptions.HTTPError as exc:
             print(f"{exc} {traceback.print_exc()}")
@@ -93,29 +99,27 @@ def run_batch(metaData):
   api = pykube.HTTPClient(config_k8s)
   api.timeout = 1e6
   batch_size = 8
-  AZURE_DATA_URI = os.environ["AZURE_DATA_URI"]
+  AZURE_DATA_URI = "/output/"
   baseName = str(json.loads(metaData)['user']['tag'])
   procs = []
   nEvents_in = 485879
+  #nEvents_in = 100
   n = nEvents_in
   k = batch_size
   startPoints = [i * (n // k) + min(i, n % k) for i in range(k)]
   chunkLength = [(n // k) + (1 if i < (n % k) else 0) for i in range(k)]
   chunkLength[-1] = chunkLength[-1] - 1
   exp_folder = get_experiment_folder()
-
   for jobN in range(batch_size):
-  	job_folder = str(Path(HOST_OUTPUT_DIRECTORY)  / baseName / str(jobN)) 
+  	job_folder = str(Path(HOST_OUTPUT_DIRECTORY)  / baseName / str(jobN)) #job_folder = str(Path(HOST_OUTPUT_DIRECTORY) / exp_folder /str(i))
   	local_job_folder = str(Path(HOST_LOCALOUTPUT_DIRECTORY) / baseName / str(jobN))
-  	os.makedirs(local_job_folder, exist_ok=True)
-  	logging.info(f"Job folder {local_job_folder} is created")
   	envs = {
   		    "first_event": startPoints[jobN],
-  		    "nEvents": chunkLength[jobN],
+  		    "nEvents":chunkLength[jobN],
   		    "jName": baseName,
   		    "jNumber": jobN + 1,
-            "sFactor": 1,
-  		    "AZURE_OUTPUT_DATA_URI": AZURE_DATA_URI.format(job_folder),
+                    "sFactor": 1,
+  		    "AZURE_OUTPUT_DATA_URI": os.path.join(AZURE_DATA_URI, job_folder),
           "PARAMS": str(json.loads(metaData)['user']['params'][1:-1])}
   	print(envs)
   	job_spec = deepcopy(JOB_SPEC)
@@ -126,5 +130,3 @@ def run_batch(metaData):
   	procs.append(proc)
   	proc.start()
   return {'jobs':procs, 'metadata': metaData, 'path': str(Path(HOST_LOCALOUTPUT_DIRECTORY) / baseName) }
-
-
