@@ -8,7 +8,7 @@ from opt_config import FIXED_PARAMS, FIXED_RANGES
 def FCN(W, Sxi2, _, Params):
     W_star = 1915820.*25/30.
 
-    return (1 + np.exp(10. * (W - W_star) / W_star)) * (1. + 2*Sxi2) if W <= 3e6 or sum(Params) > 1250. else 1e8
+    return (1 + np.exp(10. * (W - W_star) / W_star)) * (1. + 2*Sxi2) if W <= 3e6 and sum(Params) < 1250. else 1e13
 
 def StripFixedParams(point):
     #removes absober data from the point

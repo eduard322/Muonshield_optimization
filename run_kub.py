@@ -102,8 +102,8 @@ def run_batch(metaData):
   AZURE_DATA_URI = "/output/"
   baseName = str(json.loads(metaData)['user']['tag'])
   procs = []
-  nEvents_in = 485879
-  #nEvents_in = 100
+  #nEvents_in = 485879
+  nEvents_in = 100
   n = nEvents_in
   k = batch_size
   startPoints = [i * (n // k) + min(i, n % k) for i in range(k)]
@@ -121,7 +121,7 @@ def run_batch(metaData):
                     "sFactor": 1,
   		    "AZURE_OUTPUT_DATA_URI": os.path.join(AZURE_DATA_URI, job_folder),
           "PARAMS": str(json.loads(metaData)['user']['params'][1:-1])}
-  	print(envs)
+  	#print(envs)
   	job_spec = deepcopy(JOB_SPEC)
   	proc = Process(target=run_kube_job, args=(job_spec,
   						      envs,

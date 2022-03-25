@@ -1,0 +1,177 @@
+<class 'str'> 70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9
+{'first_event': 0, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 1, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/0', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 60735, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 2, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/1', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 121470, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 3, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/2', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 182205, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 4, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/3', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 242940, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 5, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/4', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 303675, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 6, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/5', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 364410, 'nEvents': 60735, 'jName': '0-0', 'jNumber': 7, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/6', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+{'first_event': 425145, 'nEvents': 60733, 'jName': '0-0', 'jNumber': 8, 'sFactor': 1, 'AZURE_OUTPUT_DATA_URI': '/output/cube_optimisation_2/0-0/7', 'PARAMS': '70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9'}
+INFO:root:JOB: eu-bb86c-0-0-2 was started. Tag is 0-0-2
+INFO:root:JOB: eu-52708-0-0-6 was started. Tag is 0-0-6
+INFO:root:JOB: eu-489b3-0-0-1 was started. Tag is 0-0-1
+INFO:root:JOB: eu-7a01b-0-0-5 was started. Tag is 0-0-5
+INFO:root:JOB: eu-cff02-0-0-7 was started. Tag is 0-0-7
+INFO:root:JOB: eu-565d0-0-0-0 was started. Tag is 0-0-0
+INFO:root:JOB: eu-493de-0-0-3 was started. Tag is 0-0-3
+INFO:root:JOB: eu-884ec-0-0-4 was started. Tag is 0-0-4
+INFO:root:JOB: eu-bb86c-0-0-2 finished. Output in /mnt/eursov/cube_optimisation_2/0-0/2
+delete error
+INFO:root:JOB: eu-493de-0-0-3 finished. Output in /mnt/eursov/cube_optimisation_2/0-0/3
+delete error
+INFO:root:JOB: eu-565d0-0-0-0 finished. Output in /mnt/eursov/cube_optimisation_2/0-0/0
+delete error
+Process Process-2:
+Process Process-6:
+Process Process-8:
+Process Process-5:
+Process Process-7:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 99, in raise_for_status
+    resp.raise_for_status()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 99, in raise_for_status
+    resp.raise_for_status()
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 99, in raise_for_status
+    resp.raise_for_status()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 99, in raise_for_status
+    resp.raise_for_status()
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cern-mc43h.ydf.yandex.net:8443/apis/batch/v1/namespaces/eursov/jobs/eu-52708-0-0-6
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cern-mc43h.ydf.yandex.net:8443/apis/batch/v1/namespaces/eursov/jobs/eu-489b3-0-0-1
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cern-mc43h.ydf.yandex.net:8443/apis/batch/v1/namespaces/eursov/jobs/eu-cff02-0-0-7
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cern-mc43h.ydf.yandex.net:8443/apis/batch/v1/namespaces/eursov/jobs/eu-7a01b-0-0-5
+Traceback (most recent call last):
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/eursov/optim/ship_shield/run_kub.py", line 74, in run_kube_job
+    job.reload()
+  File "/home/eursov/optim/ship_shield/run_kub.py", line 74, in run_kube_job
+    job.reload()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/objects.py", line 102, in reload
+    self.api.raise_for_status(r)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/objects.py", line 102, in reload
+    self.api.raise_for_status(r)
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 106, in raise_for_status
+    raise HTTPError(resp.status_code, payload["message"])
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 106, in raise_for_status
+    raise HTTPError(resp.status_code, payload["message"])
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+pykube.exceptions.HTTPError: jobs.batch "eu-52708-0-0-6" not found
+  File "/home/eursov/optim/ship_shield/run_kub.py", line 74, in run_kube_job
+    job.reload()
+pykube.exceptions.HTTPError: jobs.batch "eu-489b3-0-0-1" not found
+  File "/home/eursov/optim/ship_shield/run_kub.py", line 74, in run_kube_job
+    job.reload()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/objects.py", line 102, in reload
+    self.api.raise_for_status(r)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/objects.py", line 102, in reload
+    self.api.raise_for_status(r)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 106, in raise_for_status
+    raise HTTPError(resp.status_code, payload["message"])
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 106, in raise_for_status
+    raise HTTPError(resp.status_code, payload["message"])
+pykube.exceptions.HTTPError: jobs.batch "eu-cff02-0-0-7" not found
+pykube.exceptions.HTTPError: jobs.batch "eu-7a01b-0-0-5" not found
+Traceback (most recent call last):
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 99, in raise_for_status
+    resp.raise_for_status()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/requests/models.py", line 960, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://cern-mc43h.ydf.yandex.net:8443/apis/batch/v1/namespaces/eursov/jobs/eu-884ec-0-0-4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
+    self.run()
+  File "/home/eursov/miniconda3/lib/python3.9/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/eursov/optim/ship_shield/run_kub.py", line 74, in run_kube_job
+    job.reload()
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/objects.py", line 102, in reload
+    self.api.raise_for_status(r)
+  File "/home/eursov/miniconda3/lib/python3.9/site-packages/pykube/http.py", line 106, in raise_for_status
+    raise HTTPError(resp.status_code, payload["message"])
+pykube.exceptions.HTTPError: jobs.batch "eu-884ec-0-0-4" not found
+submitted: 
+ [[70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9]]
+[{'jobs': [<Process name='Process-1' pid=632317 parent=632315 started>, <Process name='Process-2' pid=632318 parent=632315 started>, <Process name='Process-3' pid=632319 parent=632315 started>, <Process name='Process-4' pid=632320 parent=632315 started>, <Process name='Process-5' pid=632321 parent=632315 started>, <Process name='Process-6' pid=632322 parent=632315 started>, <Process name='Process-7' pid=632323 parent=632315 started>, <Process name='Process-8' pid=632324 parent=632315 started>], 'metadata': '{"user": {"tag": "0-0", "params": "[70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9]"}, "k8s": {}}', 'path': '/mnt/eursov/cube_optimisation_2/0-0'}]
+[1646510410.0308237] Waiting...
+[True]
+[1646510470.079278] Waiting...
+[True]
+[1646510530.1394114] Waiting...
+[True]
+[1646510590.1974738] Waiting...
+[True]
+[1646510650.257635] Waiting...
+[True]
+[1646510710.283297] Waiting...
+[True]
+[1646510770.3434517] Waiting...
+[True]
+[1646510830.3962786] Waiting...
+[True]
+[1646510890.4564228] Waiting...
+[True]
+[1646510950.5165925] Waiting...
+[True]
+[1646511010.5767577] Waiting...
+[True]
+[1646511070.5992796] Waiting...
+[True]
+[1646511130.6554232] Waiting...
+[True]
+[1646511190.7073061] Waiting...
+[True]
+[1646511250.7677221] Processing jobs...
+process Point:  {'jobs': [<Process name='Process-1' pid=632317 parent=632315 stopped exitcode=0>, <Process name='Process-2' pid=632318 parent=632315 stopped exitcode=1>, <Process name='Process-3' pid=632319 parent=632315 stopped exitcode=0>, <Process name='Process-4' pid=632320 parent=632315 stopped exitcode=0>, <Process name='Process-5' pid=632321 parent=632315 stopped exitcode=1>, <Process name='Process-6' pid=632322 parent=632315 stopped exitcode=1>, <Process name='Process-7' pid=632323 parent=632315 stopped exitcode=1>, <Process name='Process-8' pid=632324 parent=632315 stopped exitcode=1>], 'metadata': '{"user": {"tag": "0-0", "params": "[70, 170, 214.8, 180.4, 309.1, 283.9, 225.4, 245, 40, 40, 150, 150, 2, 2, 80, 80, 150, 150, 2, 2, 67.1, 49.7, 27.5, 37.1, 35.6, 7.1, 54.9, 18, 78.1, 175.3, 23.2, 9.4, 32.9, 24.2, 28, 40.4, 40.8, 2.6, 3.9, 26.4, 77, 38.4, 0.7, 8.8, 13.3, 41.1, 219.5, 67.6, 6.7, 0.5, 15.4, 68.1, 92.3, 233.6, 5.8, 36.9]"}, "k8s": {}}', 'path': '/mnt/eursov/cube_optimisation_2/0-0'}
+result is:  /mnt/eursov/cube_optimisation_2/0-0
+[Errno 2] No such file or directory: '/mnt/eursov/cube_optimisation_2/0-0/1/optimise_input.json'
+Got results [None]
+default start point scorring: 
+ [] []
+Traceback (most recent call last):
+  File "/home/eursov/optim/ship_shield/start_optimisation.py", line 256, in <module>
+    main()
+  File "/home/eursov/optim/ship_shield/start_optimisation.py", line 208, in main
+    cache[json.dumps(X_1[0], cls=NpEncoder)] = y_1[0]
+IndexError: list index out of range

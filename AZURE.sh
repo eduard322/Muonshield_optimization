@@ -1,0 +1,1 @@
+export AZURE_DATA_URI="https://shipfs.file.core.windows.net/{}?sv=2020-08-04&ss=f&srt=sco&sp=rwdlc&se=2022-12-08T23:40:31Z&st=2021-12-08T15:40:31Z&spr=https,http&sig=JZxWQIkLFZG0%2B6ipQR764PJR8q94z9Uxo18NlA8PxdU%3D"
